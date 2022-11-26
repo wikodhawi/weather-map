@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_toolbar_top">10dp</dimen>
+    <dimen name="padding_toolbar_bottom">10dp</dimen>
+    <dimen name="padding_toolbar_right">10dp</dimen>
+</resources>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Story App</string>
+    <string name="app_name">Weather App</string>
     <string name="content_description_image_dicoding">Main logo image dicoding</string>
     <string name="name">Name</string>
     <string name="email">Email</string>
@@ -24,4 +24,5 @@
     <string name="maps">Maps</string>
     <string name="title_activity_maps" translatable="false">MapsActivity</string>
     <string name="api_key_maps" translatable="false">AIzaSyAAJEIU2LNQjCxLeNtYCcD9JAD13FhWOjs</string>
+    <string name="search_city">Search City</string>
 </resources>

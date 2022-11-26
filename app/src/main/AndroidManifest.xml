@@ -11,14 +11,13 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
-    <!-- Always include this permission -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
-    <!-- Include only if your app benefits from precise location access. -->
+        android:maxSdkVersion="18" /> <!-- Always include this permission -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Include only if your app benefits from precise location access. -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- Required only when requesting background location access on
-       Android 10 (API level 29) and higher. -->
+    <!--
+ Required only when requesting background location access on
+       Android 10 (API level 29) and higher.
+    -->
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
@@ -31,22 +30,18 @@
         android:theme="@style/Theme.AndroidIntermediate"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".view.weather.WeatherActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="true">
 
-        <!--
-             TODO: Before you run your application, you need a Google Maps API key.
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-             To get one, follow the directions here:
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
-                https://developers.google.com/maps/documentation/android-sdk/get-api-key
-
-             Once you have your API key (it starts with "AIza"), define a new property in your
-             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
-             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
-        -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/api_key_maps" />
-
+        </activity>
         <activity
             android:name="com.dhabasoft.weathermap.view.maps.MapsActivity"
             android:exported="false"
@@ -71,11 +66,6 @@
             android:name="com.dhabasoft.weathermap.view.login.LoginActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.dhabasoft.weathermap.view.stories.StoriesActivity"
