@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Story App</string>
+    <string name="content_description_image_dicoding">Main logo image dicoding</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="register">Register Here</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="detail_story">Detail Story</string>
+    <string name="add_story">Add Story</string>
+    <string name="content_description_story_photo">Story Photo</string>
+    <string name="content_description_add_story">Add story</string>
+    <string name="image_upload">Image Upload</string>
+    <string name="description">Description</string>
+    <string name="upload">Upload</string>
+    <string name="now_you_can_login">Now you can login</string>
+    <string name="change_language">Change Language</string>
+    <string name="input_image_and_description">Please input image and description</string>
+    <string name="retry">Retry</string>
+    <string name="stories">Stories</string>
+    <string name="maps">Maps</string>
+    <string name="title_activity_maps" translatable="false">MapsActivity</string>
+    <string name="api_key_maps" translatable="false">AIzaSyAAJEIU2LNQjCxLeNtYCcD9JAD13FhWOjs</string>
+</resources>

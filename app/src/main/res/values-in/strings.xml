@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Story App</string>
+    <string name="content_description_image_dicoding">Logo utama Dicoding</string>
+    <string name="name">Nama</string>
+    <string name="email">Email</string>
+    <string name="password">Kata Sandi</string>
+    <string name="sign_in">Masuk</string>
+    <string name="sign_out">Keluar</string>
+    <string name="register">Daftar Disini</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galeri</string>
+    <string name="detail_story">Detail Cerita</string>
+    <string name="add_story">Tambah Cerita</string>
+    <string name="content_description_story_photo">Foto Cerita</string>
+    <string name="content_description_add_story">Tambah Cerita</string>
+    <string name="image_upload">Upload Gambar</string>
+    <string name="description">Deskripsi</string>
+    <string name="upload">Unggah</string>
+    <string name="now_you_can_login">Sekarang kamu bisa masuk</string>
+    <string name="change_language">Ubah Bahasa</string>
+    <string name="input_image_and_description">Mohon masukkan foto dan deskripsi</string>
+    <string name="retry">Coba lagi</string>
+    <string name="stories">Cerita</string>
+    <string name="maps">Peta</string>
+</resources>

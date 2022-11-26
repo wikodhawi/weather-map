@@ -1,0 +1,9 @@
+{
+    "error": false,
+    "message": "success",
+    "loginResult": {
+        "userId": "user-HaUiMR9VC0S93xg4",
+        "name": "Dhaba1",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLUhhVWlNUjlWQzBTOTN4ZzQiLCJpYXQiOjE2NjYyMjUyNTZ9.aD1m-393VahMojZiaNUtSxcZjhFxnDXC3qDODTeblpE"
+    }
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="unify_n700_44">#7031353B</color>
+    <color name="Neutral_N0" category="global-color">#FFFFFF</color>
+    <color name="Unify_N0">#FFFFFF</color>
+    <color name="Unify_NN900">#2E3137</color>
+    <color name="Unify_N75">#E5E7E9</color>
+    <color name="icon_enable_default_color">@color/Unify_NN900</color>
+    <color name="Unify_NN50">#F0F3F7</color>
+    <color name="Unify_NN100">#E4EBF5</color>
+    <color name="Unify_NN200">#D6DFEB</color>
+    <color name="Unify_N700_44">#7031353B</color>
+</resources>
