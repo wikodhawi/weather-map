@@ -15,7 +15,7 @@ import dagger.hilt.components.SingletonComponent
 class DatabaseModule {
     @Provides
     fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase =
-        Room.databaseBuilder(context, AppDatabase::class.java, "RecruitmentJuloDb.db").allowMainThreadQueries().fallbackToDestructiveMigration().addCallback(object: RoomDatabase.Callback() {
+        Room.databaseBuilder(context, AppDatabase::class.java, "WeatherMap.db").allowMainThreadQueries().fallbackToDestructiveMigration().addCallback(object: RoomDatabase.Callback() {
         }).build()
 
     @Provides
