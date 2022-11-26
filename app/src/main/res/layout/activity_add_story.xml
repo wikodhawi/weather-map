@@ -38,7 +38,7 @@
         app:layout_constraintStart_toEndOf="@id/btn_camera"
         app:layout_constraintTop_toBottomOf="@id/iv_add_photo" />
 
-    <com.dhabasoft.androidintermediate.utils.customview.CustomEditText
+    <com.dhabasoft.weathermap.utils.customview.CustomEditText
         android:id="@+id/ed_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.dhabasoft.androidintermediate">
+    package="com.dhabasoft.weathermap">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -22,7 +22,7 @@
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
-        android:name=".app.MyApplication"
+        android:name="com.dhabasoft.weathermap.app.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -48,27 +48,27 @@
             android:value="@string/api_key_maps" />
 
         <activity
-            android:name=".view.maps.MapsActivity"
+            android:name="com.dhabasoft.weathermap.view.maps.MapsActivity"
             android:exported="false"
             android:label="@string/title_activity_maps" />
         <activity
-            android:name=".view.addstory.AddStoryActivity"
+            android:name="com.dhabasoft.weathermap.view.addstory.AddStoryActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
-            android:name=".view.register.RegisterActivity"
+            android:name="com.dhabasoft.weathermap.view.register.RegisterActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
-            android:name=".view.detailstory.DetailStoryActivity"
+            android:name="com.dhabasoft.weathermap.view.detailstory.DetailStoryActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
-            android:name=".view.main.MainActivity"
+            android:name="com.dhabasoft.weathermap.view.main.MainActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
-            android:name=".view.login.LoginActivity"
+            android:name="com.dhabasoft.weathermap.view.login.LoginActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true">
             <intent-filter>
@@ -78,13 +78,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.stories.StoriesActivity"
+            android:name="com.dhabasoft.weathermap.view.stories.StoriesActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.dhabasoft.androidintermediate"
+            android:authorities="com.dhabasoft.weathermap"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

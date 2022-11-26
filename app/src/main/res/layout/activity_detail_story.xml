@@ -7,7 +7,7 @@
     android:padding="16dp"
     tools:context=".view.detailstory.DetailStoryActivity">
 
-    <com.dhabasoft.androidintermediate.utils.customview.CustomImageView
+    <com.dhabasoft.weathermap.utils.customview.CustomImageView
         android:id="@+id/iv_detail_photo"
         android:layout_width="match_parent"
         android:layout_height="100dp"

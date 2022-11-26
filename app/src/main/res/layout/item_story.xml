@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <com.dhabasoft.androidintermediate.utils.customview.CustomImageView
+        <com.dhabasoft.weathermap.utils.customview.CustomImageView
             android:id="@+id/iv_item_photo"
             android:layout_width="match_parent"
             android:layout_height="100dp"
