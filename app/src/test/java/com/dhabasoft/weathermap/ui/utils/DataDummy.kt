@@ -1,5 +1,6 @@
 package com.dhabasoft.weathermap.ui.utils
 
+import com.dhabasoft.weathermap.core.data.source.response.detailcity.DetailCity
 import com.dhabasoft.weathermap.core.data.source.response.findcity.FindCity
 import com.google.gson.Gson
 
@@ -14,4 +15,7 @@ object DataDummy {
 
     val generateGetCity: FindCity =
         Gson().fromJson(getStringFromFileJson("/get_city.json"), FindCity::class.java)
+
+    val generateGetDetailCity: DetailCity =
+        Gson().fromJson(getStringFromFileJson("/get_details.json"), DetailCity::class.java)
 }

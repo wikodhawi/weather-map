@@ -16,6 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailCityViewModel @Inject constructor(private val weatherUseCase: WeatherUseCase) :
     ViewModel() {
+
     val isFavourite = weatherUseCase.getFlowIsFavourite().asLiveData()
 
     fun getIsFavourite(cityId: Int) = weatherUseCase.getIsFavoriteCity(cityId)
