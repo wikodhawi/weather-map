@@ -4,14 +4,11 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.dhabasoft.weathermap.core.WeatherRepository
 import com.dhabasoft.weathermap.core.data.Resource
-import com.dhabasoft.weathermap.core.data.local.CityEntity
 import com.dhabasoft.weathermap.core.data.local.detailcity.DetailCityEntity
-import com.dhabasoft.weathermap.core.data.source.MapperEntity.mapResponseToCityEntity
 import com.dhabasoft.weathermap.core.data.source.MapperEntity.mapToDetailCityEntity
 import com.dhabasoft.weathermap.core.domain.usecase.WeatherInteractor
 import com.dhabasoft.weathermap.ui.utils.DataDummy
 import com.dhabasoft.weathermap.view.detailcity.DetailCityViewModel
-import com.dhabasoft.weathermap.view.weather.WeatherViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
