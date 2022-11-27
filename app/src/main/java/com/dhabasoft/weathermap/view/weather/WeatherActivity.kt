@@ -3,15 +3,14 @@ package com.dhabasoft.weathermap.view.weather
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,7 +20,6 @@ import com.dhabasoft.weathermap.core.data.local.CityEntity
 import com.dhabasoft.weathermap.databinding.ActivityWeatherBinding
 import com.dhabasoft.weathermap.utils.customview.CustomDialog
 import com.dhabasoft.weathermap.view.detailcity.DetailCityActivity
-import com.dhabasoft.weathermap.view.stories.StoriesViewModel
 import com.dhabasoft.weathermap.view.weather.adapter.CityAdapter
 import dagger.hilt.android.AndroidEntryPoint
 

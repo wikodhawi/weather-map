@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.dhabasoft.weathermap.core.data.local.CityEntity
 import com.dhabasoft.weathermap.databinding.ActivityDetailCityBinding
+import com.dhabasoft.weathermap.utils.CountryFlags
 
 class DetailCityActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailCityBinding
@@ -18,6 +19,6 @@ class DetailCityActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val selectedCity = intent.getParcelableExtra<CityEntity>(KEY_SELECTED_CITY)
-        title = selectedCity?.cityName
+        title = "${selectedCity?.cityName} ${CountryFlags.getCountryFlagByCountryCode(selectedCity?.countryCode?: "")}"
     }
 }

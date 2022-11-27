@@ -5,7 +5,6 @@ import com.dhabasoft.weathermap.core.data.source.remote.ApiResponse
 import com.dhabasoft.weathermap.core.data.source.remote.ApiService
 import com.dhabasoft.weathermap.core.data.source.response.detailcity.DetailCity
 import com.dhabasoft.weathermap.core.data.source.response.error.ErrorResponse
-import com.dhabasoft.weathermap.core.data.source.response.error.GeneralResponse
 import com.dhabasoft.weathermap.core.data.source.response.findcity.FindCity
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
