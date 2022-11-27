@@ -2,17 +2,21 @@ package com.dhabasoft.weathermap.view.detailcity
 
 import android.app.Dialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.dhabasoft.weathermap.R
 import com.dhabasoft.weathermap.core.data.Resource
 import com.dhabasoft.weathermap.core.data.local.CityEntity
 import com.dhabasoft.weathermap.databinding.ActivityDetailCityBinding
 import com.dhabasoft.weathermap.utils.CountryFlags
 import com.dhabasoft.weathermap.utils.customview.CustomDialog
+import com.dhabasoft.weathermap.view.detailcity.adapter.DetailCityAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,6 +25,7 @@ class DetailCityActivity : AppCompatActivity() {
     private var selectedCity: CityEntity? = null
     private val viewModel: DetailCityViewModel by viewModels()
     private lateinit var dialog: Dialog
+    private lateinit var adapter: DetailCityAdapter
 
     companion object {
         const val KEY_SELECTED_CITY = "selected_city"
@@ -51,7 +56,19 @@ class DetailCityActivity : AppCompatActivity() {
 
         viewModel.getIsFavourite(selectedCity?.id ?: 0)
 
+        initRecyclerView()
+
         getDetailCity()
+    }
+
+    private fun initRecyclerView() {
+        val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
+        binding.rcyDetailCity.apply {
+            layoutManager = mLayoutManager
+            itemAnimator = DefaultItemAnimator()
+        }
+        adapter = DetailCityAdapter()
+        binding.rcyDetailCity.adapter = adapter
     }
 
     private fun getDetailCity() {
@@ -63,8 +80,8 @@ class DetailCityActivity : AppCompatActivity() {
                     }
                     is Resource.Success -> {
                         binding.progressDetailCity.root.visibility = View.GONE
-                        it.data?.let { cities ->
-//                            adapter.setListCities(cities)
+                        it.data?.let { details ->
+                            adapter.setListDetail(details)
                         }
                     }
                     is Resource.Error -> {

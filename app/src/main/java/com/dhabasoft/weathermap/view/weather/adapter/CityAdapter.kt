@@ -13,9 +13,9 @@ import com.dhabasoft.weathermap.utils.CountryFlags
  */
 class CityAdapter (private val onClickCallback: OnClickCallback) : RecyclerView.Adapter<CityAdapter.ViewHolder>(){
     private var cities: List<CityEntity> = ArrayList()
-    fun setListCities(tvShows: List<CityEntity>)
+    fun setListCities(cities: List<CityEntity>)
     {
-        this.cities = tvShows
+        this.cities = cities
         notifyDataSetChanged()
     }
 
