@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.dhabasoft.weathermap.core.data.Resource
 import com.dhabasoft.weathermap.core.data.local.CityEntity
-import com.dhabasoft.weathermap.core.data.source.response.findcity.FindCity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

@@ -1,23 +1,18 @@
 package com.dhabasoft.weathermap.core.data.source
 
 import com.dhabasoft.weathermap.core.data.local.CityEntity
-import com.dhabasoft.weathermap.core.data.local.detailcity.DetailByHourEntity
 import com.dhabasoft.weathermap.core.data.local.detailcity.DetailCityEntity
 import com.dhabasoft.weathermap.core.data.source.MapperEntity.mapResponseToCityEntity
 import com.dhabasoft.weathermap.core.data.source.MapperEntity.mapToDetailCityEntity
 import com.dhabasoft.weathermap.core.data.source.remote.ApiResponse
 import com.dhabasoft.weathermap.core.data.source.remote.ApiService
-import com.dhabasoft.weathermap.core.data.source.response.detailcity.DetailCity
 import com.dhabasoft.weathermap.core.data.source.response.error.ErrorResponse
-import com.dhabasoft.weathermap.core.data.source.response.findcity.FindCity
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import retrofit2.HttpException
-import java.text.SimpleDateFormat
-import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 

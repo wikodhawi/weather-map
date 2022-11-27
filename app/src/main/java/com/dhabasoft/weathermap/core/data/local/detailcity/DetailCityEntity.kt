@@ -1,7 +1,5 @@
 package com.dhabasoft.weathermap.core.data.local.detailcity
 
-import java.util.*
-
 /**
  * Created by dhaba
  */
