@@ -23,12 +23,18 @@ class WeatherRepository @Inject constructor(
 ) : IWeatherRepository {
     override fun findCity(city: String): Flow<Resource<List<CityEntity>>> = flow {
         emit(Resource.Loading())
-        when (val responseData = remoteDataSource.findCity(city).first()) {
-            is ApiResponse.Success -> {
-                emit(Resource.Success(responseData.data))
-            }
-            is ApiResponse.Error -> {
-                emit(Resource.Error(responseData.errorMessage))
+
+        val cacheCities = cityLocalDataSource.getCities("%$city%").first()
+        if (cacheCities.isNotEmpty()) {
+            emit(Resource.Success(cacheCities))
+        } else {
+            when (val responseData = remoteDataSource.findCity(city).first()) {
+                is ApiResponse.Success -> {
+                    emit(Resource.Success(responseData.data))
+                }
+                is ApiResponse.Error -> {
+                    emit(Resource.Error(responseData.errorMessage))
+                }
             }
         }
     }

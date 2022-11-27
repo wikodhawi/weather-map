@@ -59,6 +59,8 @@ class WeatherActivity : AppCompatActivity() {
             }
             false
         }
+
+        findCity()
     }
 
     private fun initRecyclerView() {

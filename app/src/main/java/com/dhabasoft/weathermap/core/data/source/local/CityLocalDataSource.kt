@@ -2,7 +2,9 @@ package com.dhabasoft.weathermap.core.data.source.local
 
 import com.dhabasoft.weathermap.core.data.local.CityEntity
 import com.dhabasoft.weathermap.core.data.local.service.dao.CityFavouriteDao
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -24,5 +26,9 @@ class CityLocalDataSource @Inject constructor(
         else
             cityFavouriteDao.delete(cityEntity.id)
         getIsFavouriteCity(cityEntity.id)
+    }
+
+    fun getCities(cityName: String) : Flow<List<CityEntity>> = flow {
+         emit(cityFavouriteDao.getByCityName(cityName))
     }
 }
