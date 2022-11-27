@@ -17,7 +17,8 @@ android {
         versionCode 1
         versionName "1.0"
 
-        buildConfigField "String", "BASE_URL", "\"https://story-api.dicoding.dev/v1/\""
+        buildConfigField "String", "BASE_URL", "\"https://api.openweathermap.org/\""
+        buildConfigField "String", "API_KEY", "\"cab7fdad2ab2a4d685e1a2c08ddb73eb\""
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
