@@ -10,7 +10,7 @@ data class Sys(
     val country: String,
     @SerializedName("id")
     @Expose
-    val id: Int,
+    val id: String,
     @SerializedName("sunrise")
     @Expose
     val sunrise: Int,

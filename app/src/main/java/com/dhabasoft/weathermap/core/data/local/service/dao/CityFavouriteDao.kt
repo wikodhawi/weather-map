@@ -3,7 +3,7 @@ package com.dhabasoft.weathermap.core.data.local.service.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
-import com.dhabasoft.weathermap.core.data.local.CityFavouriteEntity
+import com.dhabasoft.weathermap.core.data.local.CityEntity
 
 /**
  * Created by dhaba
@@ -11,5 +11,5 @@ import com.dhabasoft.weathermap.core.data.local.CityFavouriteEntity
 @Dao
 interface CityFavouriteDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertFavouriteCity(cityFavouriteEntity: CityFavouriteEntity)
+    fun insertFavouriteCity(cityFavouriteEntity: CityEntity)
 }

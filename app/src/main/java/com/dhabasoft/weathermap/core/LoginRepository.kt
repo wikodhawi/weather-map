@@ -1,7 +1,6 @@
 package com.dhabasoft.weathermap.core
 
 import com.dhabasoft.weathermap.core.data.Resource
-import com.dhabasoft.weathermap.core.data.local.CityFavouriteEntity
 import com.dhabasoft.weathermap.core.data.source.LoginRemoteDataSource
 import com.dhabasoft.weathermap.core.data.source.local.CityLocalDataSource
 import com.dhabasoft.weathermap.core.data.source.remote.ApiResponse
@@ -10,7 +9,6 @@ import com.dhabasoft.weathermap.core.domain.repository.ILoginRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
-import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -23,7 +21,7 @@ class LoginRepository @Inject constructor(
     private val cityLocalDataSource: CityLocalDataSource
 ) : ILoginRepository {
     override fun login(email: String, password: String): Flow<Resource<LoginResult>> = flow {
-        cityLocalDataSource.setOrRemoveFromMovieFavourite(CityFavouriteEntity(1, "CityId", "DhabaCity", Date()))
+//        cityLocalDataSource.setOrRemoveFromMovieFavourite(CityFavouriteEntity(1, "CityId", "DhabaCity", "ID"))
         emit(Resource.Loading())
         when(val responseData = remoteDataSource.login(email, password).first())
         {

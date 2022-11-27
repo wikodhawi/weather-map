@@ -1,7 +1,7 @@
 package com.dhabasoft.weathermap.view.weather
 
 import com.dhabasoft.weathermap.core.data.Resource
-import com.dhabasoft.weathermap.core.data.source.response.findcity.FindCity
+import com.dhabasoft.weathermap.core.data.local.CityEntity
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -10,5 +10,5 @@ import kotlinx.coroutines.flow.Flow
 interface WeatherUseCase {
     fun findCity(
         city: String
-    ): Flow<Resource<FindCity>>
+    ): Flow<Resource<List<CityEntity>>>
 }

@@ -24,13 +24,13 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="?android:attr/actionBarSize"
-                >
+                android:minHeight="?android:attr/actionBarSize">
 
                 <EditText
                     android:id="@+id/edt_search_cities"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
                     android:autofillHints="@string/search_city"
                     android:background="@drawable/shape_text_input"
                     android:drawableEnd="@drawable/ic_search"
@@ -41,7 +41,6 @@
                     android:inputType="textPersonName"
                     android:maxLines="1"
                     android:paddingStart="20dp"
-                    android:layout_marginEnd="15dp"
                     android:paddingEnd="@dimen/padding_toolbar_right"
                     android:paddingBottom="@dimen/padding_toolbar_bottom"
                     android:singleLine="true" />
@@ -60,15 +59,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/appBarLayout" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <include
+            android:id="@+id/progress_find_city"
+            layout="@layout/item_loading"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <include
-        android:id="@+id/progress_find_city"
-        layout="@layout/item_loading"
-        android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
