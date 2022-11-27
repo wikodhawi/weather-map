@@ -38,7 +38,7 @@ class WeatherRemoteDataSource @Inject constructor(private val apiService: ApiSer
 
     private fun FindCity.mapResponseToCityEntity(): CityEntity {
         return CityEntity(
-            cityId = this.sys.id,
+            cityId = this.id,
             cityName = this.name,
             countryCode = this.sys.country,
             weatherIcon = if (this.weather.isNotEmpty()) this.weather[0].icon else "",

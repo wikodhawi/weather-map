@@ -47,8 +47,8 @@
 
         <ImageView
             android:id="@+id/image_weather"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             app:layout_constraintStart_toEndOf="@id/tv_city_name"
             app:layout_constraintTop_toTopOf="@id/tv_city_name"
             app:layout_constraintBottom_toBottomOf="@id/tv_city_name"/>
