@@ -1,6 +1,8 @@
 package com.dhabasoft.weathermap.core.data.source.remote
 
+import com.dhabasoft.weathermap.BuildConfig
 import com.dhabasoft.weathermap.core.data.source.response.error.GeneralResponse
+import com.dhabasoft.weathermap.core.data.source.response.findcity.FindCity
 import com.dhabasoft.weathermap.core.data.source.response.login.LoginResponse
 import com.dhabasoft.weathermap.core.data.source.response.stories.StoriesResponse
 import okhttp3.MultipartBody
@@ -38,4 +40,7 @@ interface ApiService {
 
     @GET("stories?location=1")
     suspend fun getStoriesLocation(@Header("Authorization") authorization: String): StoriesResponse
+
+    @GET("data/2.5/weather?units=metric&appid=${BuildConfig.API_KEY}")
+    suspend fun findCity(@Query("q") city: String): FindCity
 }
