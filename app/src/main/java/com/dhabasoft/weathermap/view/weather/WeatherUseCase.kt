@@ -3,7 +3,6 @@ package com.dhabasoft.weathermap.view.weather
 import com.dhabasoft.weathermap.core.data.Resource
 import com.dhabasoft.weathermap.core.data.local.CityEntity
 import com.dhabasoft.weathermap.core.data.local.detailcity.DetailCityEntity
-import com.dhabasoft.weathermap.core.data.source.response.detailcity.DetailCity
 import kotlinx.coroutines.flow.Flow
 
 /**

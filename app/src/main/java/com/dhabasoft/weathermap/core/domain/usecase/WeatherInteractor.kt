@@ -4,7 +4,6 @@ import com.dhabasoft.weathermap.core.WeatherRepository
 import com.dhabasoft.weathermap.core.data.Resource
 import com.dhabasoft.weathermap.core.data.local.CityEntity
 import com.dhabasoft.weathermap.core.data.local.detailcity.DetailCityEntity
-import com.dhabasoft.weathermap.core.data.source.response.detailcity.DetailCity
 import com.dhabasoft.weathermap.view.weather.WeatherUseCase
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

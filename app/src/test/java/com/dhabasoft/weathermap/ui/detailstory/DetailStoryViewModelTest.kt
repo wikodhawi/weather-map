@@ -1,14 +1,14 @@
-package com.dhabasoft.weathermap.ui.addstory
+package com.dhabasoft.weathermap.ui.detailstory
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.dhabasoft.weathermap.core.WeatherRepository
 import com.dhabasoft.weathermap.core.data.Resource
-import com.dhabasoft.weathermap.core.data.local.CityEntity
-import com.dhabasoft.weathermap.core.data.source.MapperEntity.mapResponseToCityEntity
+import com.dhabasoft.weathermap.core.data.local.detailcity.DetailCityEntity
+import com.dhabasoft.weathermap.core.data.source.MapperEntity.mapToDetailCityEntity
 import com.dhabasoft.weathermap.core.domain.usecase.WeatherInteractor
 import com.dhabasoft.weathermap.ui.utils.DataDummy
-import com.dhabasoft.weathermap.view.weather.WeatherViewModel
+import com.dhabasoft.weathermap.view.detailcity.DetailCityViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
@@ -29,34 +29,39 @@ import org.mockito.junit.MockitoJUnitRunner
  */
 @OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(MockitoJUnitRunner::class)
-class AddStoryViewModelTest {
+class DetailStoryViewModelTest {
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    private lateinit var viewModel: WeatherViewModel
+    private lateinit var viewModel: DetailCityViewModel
 
     private val repository = Mockito.mock(WeatherRepository::class.java)
 
-    private val weatherUseCase = WeatherInteractor(repository)
+    private val storiesUseCase = WeatherInteractor(repository)
 
     companion object {
-        private const val MOCK_CITY = "jakarta"
-        private val dataCity = Resource.Success(
-            listOf(DataDummy.generateGetCity.mapResponseToCityEntity())
+        private const val CITY_ID = "1234"
+        private val dataDetailCity = Resource.Success(
+            DataDummy.generateGetDetailCity.mapToDetailCityEntity()
         )
-        private val mockCity = flow { emit(dataCity)  }
+        private val mockCity = flow { emit(dataDetailCity)  }
     }
 
     private val dispatcher = UnconfinedTestDispatcher()
 
     @Mock
-    private lateinit var observer: Observer<Resource<List<CityEntity>>>
+    private lateinit var observer: Observer<Resource<List<DetailCityEntity>>>
 
     @Before
     fun setUp() {
         MockitoAnnotations.openMocks(this)
         Dispatchers.setMain(dispatcher)
-        viewModel = WeatherViewModel(weatherUseCase)
+        Mockito.`when`(
+            repository.getFlowIsFavourite()
+        ).thenReturn(
+            flow { true }
+        )
+        viewModel = DetailCityViewModel(storiesUseCase)
     }
 
     @After
@@ -65,14 +70,14 @@ class AddStoryViewModelTest {
     }
 
     @Test
-    fun `given dummy specific city when find city then success get data city`() = runBlocking{
+    fun `given dummy specific city id when get detail city then success get detail data city`() = runBlocking{
         Mockito.`when`(
-            repository.findCity(MOCK_CITY)
+            repository.detailCity(CITY_ID)
         ).thenReturn(
             mockCity
         )
 
-        val cityLiveData = viewModel.findCity(MOCK_CITY)
+        val cityLiveData = viewModel.getDetailCity(CITY_ID)
 
         cityLiveData.observeForever(observer)
         val cityEntity = cityLiveData.value
@@ -80,7 +85,7 @@ class AddStoryViewModelTest {
 
         Assert.assertEquals(mockCity.first().data, cityEntity?.data)
 
-        Mockito.verify(observer).onChanged(dataCity)
+        Mockito.verify(observer).onChanged(dataDetailCity)
 
     }
 }

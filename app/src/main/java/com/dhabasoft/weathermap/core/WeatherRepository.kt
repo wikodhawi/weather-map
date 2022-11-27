@@ -6,7 +6,6 @@ import com.dhabasoft.weathermap.core.data.local.detailcity.DetailCityEntity
 import com.dhabasoft.weathermap.core.data.source.WeatherRemoteDataSource
 import com.dhabasoft.weathermap.core.data.source.local.CityLocalDataSource
 import com.dhabasoft.weathermap.core.data.source.remote.ApiResponse
-import com.dhabasoft.weathermap.core.data.source.response.detailcity.DetailCity
 import com.dhabasoft.weathermap.core.domain.repository.IWeatherRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first

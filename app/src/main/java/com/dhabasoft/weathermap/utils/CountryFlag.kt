@@ -31,8 +31,7 @@ object CountryFlags {
     private val Y = getEmojiByUnicode(0x1F1FE)
     private val Z = getEmojiByUnicode(0x1F1FF)
     private fun getCodeByCharacter(character: Char): String {
-        val code: String
-        code = when (character.uppercaseChar()) {
+        val code: String = when (character.uppercaseChar()) {
             'A' -> A
             'B' -> B
             'C' -> C
@@ -69,8 +68,7 @@ object CountryFlags {
     }
 
     fun getCountryFlagByCountryCode(countryCode: String): String {
-        val flag: String
-        flag = if (countryCode.length == 2) {
+        val flag: String = if (countryCode.length == 2) {
             getCodeByCharacter(countryCode[0]) + getCodeByCharacter(
                 countryCode[1]
             )

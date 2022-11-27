@@ -58,6 +58,11 @@ class DetailCityActivity : AppCompatActivity() {
 
         initRecyclerView()
 
+        binding.swipeRefreshDetail.setOnRefreshListener {
+            getDetailCity()
+            binding.swipeRefreshDetail.isRefreshing = false
+        }
+
         getDetailCity()
     }
 
