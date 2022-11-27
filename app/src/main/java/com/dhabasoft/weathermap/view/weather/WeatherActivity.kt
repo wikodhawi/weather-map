@@ -20,6 +20,7 @@ import com.dhabasoft.weathermap.core.data.Resource
 import com.dhabasoft.weathermap.core.data.local.CityEntity
 import com.dhabasoft.weathermap.databinding.ActivityWeatherBinding
 import com.dhabasoft.weathermap.utils.customview.CustomDialog
+import com.dhabasoft.weathermap.view.detailcity.DetailCityActivity
 import com.dhabasoft.weathermap.view.stories.StoriesViewModel
 import com.dhabasoft.weathermap.view.weather.adapter.CityAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -70,7 +71,9 @@ class WeatherActivity : AppCompatActivity() {
         }
         adapter = CityAdapter(object : CityAdapter.OnClickCallback {
             override fun toDetailCity(cityFavouriteEntity: CityEntity) {
-//                TODO("Not yet implemented")
+                val intent = Intent(applicationContext, DetailCityActivity::class.java)
+                intent.putExtra(DetailCityActivity.KEY_SELECTED_CITY, cityFavouriteEntity)
+                startActivity(intent)
             }
         })
         binding.rcyMain.adapter = adapter

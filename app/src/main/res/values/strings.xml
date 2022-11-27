@@ -27,4 +27,5 @@
     <string name="api_key_maps" translatable="false">AIzaSyAAJEIU2LNQjCxLeNtYCcD9JAD13FhWOjs</string>
     <string name="search_city">Search City</string>
     <string name="image">image</string>
+    <string name="add_to_favorite">Add to favorite</string>
 </resources>
