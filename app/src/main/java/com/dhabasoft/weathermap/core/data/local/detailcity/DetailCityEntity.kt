@@ -5,5 +5,5 @@ import java.util.*
 /**
  * Created by dhaba
  */
-data class DetailCityEntity (val dateString: Calendar, val detailByHour : List<DetailByHourEntity>) {
+data class DetailCityEntity (val dateString: String, val detailByHour : List<DetailByHourEntity>) {
 }

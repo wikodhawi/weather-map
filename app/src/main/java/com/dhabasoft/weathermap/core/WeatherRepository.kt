@@ -2,6 +2,7 @@ package com.dhabasoft.weathermap.core
 
 import com.dhabasoft.weathermap.core.data.Resource
 import com.dhabasoft.weathermap.core.data.local.CityEntity
+import com.dhabasoft.weathermap.core.data.local.detailcity.DetailCityEntity
 import com.dhabasoft.weathermap.core.data.source.WeatherRemoteDataSource
 import com.dhabasoft.weathermap.core.data.source.local.CityLocalDataSource
 import com.dhabasoft.weathermap.core.data.source.remote.ApiResponse
@@ -39,7 +40,7 @@ class WeatherRepository @Inject constructor(
         }
     }
 
-    override fun detailCity(cityId: String): Flow<Resource<DetailCity>> = flow {
+    override fun detailCity(cityId: String): Flow<Resource<List<DetailCityEntity>>> = flow {
         emit(Resource.Loading())
         when (val responseData = remoteDataSource.detailCity(cityId).first()) {
             is ApiResponse.Success -> {

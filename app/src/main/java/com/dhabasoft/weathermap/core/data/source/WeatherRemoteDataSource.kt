@@ -2,6 +2,7 @@ package com.dhabasoft.weathermap.core.data.source
 
 import com.dhabasoft.weathermap.core.data.local.CityEntity
 import com.dhabasoft.weathermap.core.data.local.detailcity.DetailByHourEntity
+import com.dhabasoft.weathermap.core.data.local.detailcity.DetailCityEntity
 import com.dhabasoft.weathermap.core.data.source.remote.ApiResponse
 import com.dhabasoft.weathermap.core.data.source.remote.ApiService
 import com.dhabasoft.weathermap.core.data.source.response.detailcity.DetailCity
@@ -39,12 +40,12 @@ class WeatherRemoteDataSource @Inject constructor(private val apiService: ApiSer
         }.flowOn(Dispatchers.IO)
     }
 
-    fun detailCity(cityId: String): Flow<ApiResponse<DetailCity>> {
+    fun detailCity(cityId: String): Flow<ApiResponse<List<DetailCityEntity>>> {
         return flow {
             try {
                 val response = apiService.detailCity(cityId)
-                val x = response.mapToDetailCityEntity()
-                emit(ApiResponse.Success(response))
+                val detailCities = response.mapToDetailCityEntity()
+                emit(ApiResponse.Success(detailCities))
             } catch (e: HttpException) {
                 val responseError =
                     Gson().fromJson(e.response()?.errorBody()?.string(), ErrorResponse::class.java)
@@ -65,7 +66,8 @@ class WeatherRemoteDataSource @Inject constructor(private val apiService: ApiSer
         )
     }
 
-    private fun DetailCity.mapToDetailCityEntity(): Map<String, MutableList<DetailByHourEntity>> {
+    private fun DetailCity.mapToDetailCityEntity(): List<DetailCityEntity> {
+        val result = mutableListOf<DetailCityEntity>()
         val today = Calendar.getInstance()
         today.time = Date()
         today.set(Calendar.HOUR_OF_DAY, 0)
@@ -106,6 +108,9 @@ class WeatherRemoteDataSource @Inject constructor(private val apiService: ApiSer
                 e.printStackTrace()
             }
         }
-        return mapDetailHour
+        for (i in mapDetailHour) {
+            result.add(DetailCityEntity(i.key, i.value))
+        }
+        return result
     }
 }

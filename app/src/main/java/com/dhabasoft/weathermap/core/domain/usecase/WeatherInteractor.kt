@@ -3,6 +3,7 @@ package com.dhabasoft.weathermap.core.domain.usecase
 import com.dhabasoft.weathermap.core.WeatherRepository
 import com.dhabasoft.weathermap.core.data.Resource
 import com.dhabasoft.weathermap.core.data.local.CityEntity
+import com.dhabasoft.weathermap.core.data.local.detailcity.DetailCityEntity
 import com.dhabasoft.weathermap.core.data.source.response.detailcity.DetailCity
 import com.dhabasoft.weathermap.view.weather.WeatherUseCase
 import kotlinx.coroutines.flow.Flow
@@ -17,7 +18,7 @@ class WeatherInteractor @Inject constructor(private val weatherRepository: Weath
         return  weatherRepository.findCity(city)
     }
 
-    override fun detailCity(cityId: String): Flow<Resource<DetailCity>> {
+    override fun detailCity(cityId: String): Flow<Resource<List<DetailCityEntity>>> {
         return weatherRepository.detailCity(cityId)
     }
 
