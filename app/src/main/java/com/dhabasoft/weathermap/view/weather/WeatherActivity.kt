@@ -60,6 +60,11 @@ class WeatherActivity : AppCompatActivity() {
             false
         }
 
+        binding.swipeRefresh.setOnRefreshListener {
+            findCity()
+            binding.swipeRefresh.isRefreshing = false
+        }
+
         findCity()
     }
 
