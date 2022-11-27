@@ -6,9 +6,8 @@ import java.util.*
 
 @Entity
 class CityEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
-    val cityId: String,
+    @PrimaryKey
+    val id: String,
     val cityName: String,
     val countryCode: String,
     val weatherIcon: String,

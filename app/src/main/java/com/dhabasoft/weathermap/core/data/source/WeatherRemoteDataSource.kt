@@ -3,6 +3,7 @@ package com.dhabasoft.weathermap.core.data.source
 import com.dhabasoft.weathermap.core.data.local.CityEntity
 import com.dhabasoft.weathermap.core.data.source.remote.ApiResponse
 import com.dhabasoft.weathermap.core.data.source.remote.ApiService
+import com.dhabasoft.weathermap.core.data.source.response.detailcity.DetailCity
 import com.dhabasoft.weathermap.core.data.source.response.error.ErrorResponse
 import com.dhabasoft.weathermap.core.data.source.response.error.GeneralResponse
 import com.dhabasoft.weathermap.core.data.source.response.findcity.FindCity
@@ -36,9 +37,24 @@ class WeatherRemoteDataSource @Inject constructor(private val apiService: ApiSer
         }.flowOn(Dispatchers.IO)
     }
 
+    fun detailCity(cityId: String): Flow<ApiResponse<DetailCity>> {
+        return flow {
+            try {
+                val response = apiService.detailCity(cityId)
+                emit(ApiResponse.Success(response))
+            } catch (e: HttpException) {
+                val responseError =
+                    Gson().fromJson(e.response()?.errorBody()?.string(), ErrorResponse::class.java)
+                emit(ApiResponse.Error(responseError.message))
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
     private fun FindCity.mapResponseToCityEntity(): CityEntity {
         return CityEntity(
-            cityId = this.id,
+            id = this.id,
             cityName = this.name,
             countryCode = this.sys.country,
             weatherIcon = if (this.weather.isNotEmpty()) this.weather[0].icon else "",
