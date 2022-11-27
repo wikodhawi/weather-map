@@ -20,9 +20,11 @@
     <string name="change_language">Change Language</string>
     <string name="input_image_and_description">Please input image and description</string>
     <string name="retry">Retry</string>
+    <string name="settings">Settings</string>
     <string name="stories">Stories</string>
     <string name="maps">Maps</string>
     <string name="title_activity_maps" translatable="false">MapsActivity</string>
     <string name="api_key_maps" translatable="false">AIzaSyAAJEIU2LNQjCxLeNtYCcD9JAD13FhWOjs</string>
     <string name="search_city">Search City</string>
+    <string name="image">image</string>
 </resources>

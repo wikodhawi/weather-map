@@ -1,9 +1,11 @@
 package com.dhabasoft.weathermap.view.weather
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -17,6 +19,7 @@ import com.dhabasoft.weathermap.R
 import com.dhabasoft.weathermap.core.data.Resource
 import com.dhabasoft.weathermap.core.data.local.CityEntity
 import com.dhabasoft.weathermap.databinding.ActivityWeatherBinding
+import com.dhabasoft.weathermap.utils.customview.CustomDialog
 import com.dhabasoft.weathermap.view.stories.StoriesViewModel
 import com.dhabasoft.weathermap.view.weather.adapter.CityAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,6 +29,7 @@ class WeatherActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWeatherBinding
     private val viewModel: WeatherViewModel by viewModels()
     private lateinit var adapter: CityAdapter
+    private lateinit var dialog: Dialog
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -87,12 +91,24 @@ class WeatherActivity : AppCompatActivity() {
                     }
                     is Resource.Error -> {
                         binding.progressFindCity.root.visibility = View.GONE
-                        Toast.makeText(
-                            applicationContext,
-                            it.message,
-                            Toast.LENGTH_SHORT
-                        )
-                            .show()
+                        val message = it.message!!
+                        if (!this::dialog.isInitialized || !dialog.isShowing) {
+                            dialog = CustomDialog.createDialogWithTwoButton(this,
+                                cancelable = false,
+                                message = message,
+                                labelPositiveButton = getString(R.string.retry),
+                                labelNegativeButton = getString(R.string.settings),
+                                positiveAction = {
+                                    findCity()
+                                },
+                                negativeAction = {
+                                    startActivityForResult(Intent(Settings.ACTION_SETTINGS), 0)
+                                },
+                                closeAction = {
+
+                                })
+                            dialog.show()
+                        }
                     }
                 }
             }
