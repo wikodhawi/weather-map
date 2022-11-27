@@ -3,7 +3,8 @@ package com.dhabasoft.weathermap.core.data.local.service.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
-import com.dhabasoft.weathermap.core.data.local.CityFavouriteEntity
+import androidx.room.Query
+import com.dhabasoft.weathermap.core.data.local.CityEntity
 
 /**
  * Created by dhaba
@@ -11,5 +12,14 @@ import com.dhabasoft.weathermap.core.data.local.CityFavouriteEntity
 @Dao
 interface CityFavouriteDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertFavouriteCity(cityFavouriteEntity: CityFavouriteEntity)
+    fun insertFavouriteCity(cityFavouriteEntity: CityEntity)
+
+    @Query("SELECT * FROM CityEntity WHERE id=:id")
+    fun getById(id: Int): CityEntity?
+
+    @Query("DELETE FROM CityEntity WHERE id=:id")
+    fun delete(id: Int)
+
+    @Query("SELECT * FROM CityEntity WHERE cityName like :query")
+    fun getByCityName(query: String): List<CityEntity>
 }

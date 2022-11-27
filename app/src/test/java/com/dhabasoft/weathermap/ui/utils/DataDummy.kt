@@ -1,8 +1,6 @@
 package com.dhabasoft.weathermap.ui.utils
 
-import com.dhabasoft.weathermap.core.data.source.response.error.GeneralResponse
-import com.dhabasoft.weathermap.core.data.source.response.login.LoginResponse
-import com.dhabasoft.weathermap.core.data.source.response.stories.StoriesResponse
+import com.dhabasoft.weathermap.core.data.source.response.findcity.FindCity
 import com.google.gson.Gson
 
 /**
@@ -14,15 +12,6 @@ object DataDummy {
         return bufferedReader?.bufferedReader()?.use { it.readText() } ?: ""
     }
 
-    val generateLoginResponse: LoginResponse =
-        Gson().fromJson(getStringFromFileJson("/login.json"), LoginResponse::class.java)
-
-    val generateStoriesResponse: StoriesResponse =
-        Gson().fromJson(getStringFromFileJson("/get_all_story.json"), StoriesResponse::class.java)
-
-    val generateRegisterResponse: GeneralResponse =
-        Gson().fromJson(getStringFromFileJson("/register.json"), GeneralResponse::class.java)
-
-    val generateAddStoryResponse: GeneralResponse =
-        Gson().fromJson(getStringFromFileJson("/add_story.json"), GeneralResponse::class.java)
+    val generateGetCity: FindCity =
+        Gson().fromJson(getStringFromFileJson("/get_city.json"), FindCity::class.java)
 }
