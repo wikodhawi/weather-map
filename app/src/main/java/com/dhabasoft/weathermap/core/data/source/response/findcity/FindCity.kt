@@ -22,7 +22,7 @@ data class FindCity(
     val dt: Int,
     @SerializedName("id")
     @Expose
-    val id: String = "",
+    val id: Int = 0,
     @SerializedName("main")
     @Expose
     val main: Main,

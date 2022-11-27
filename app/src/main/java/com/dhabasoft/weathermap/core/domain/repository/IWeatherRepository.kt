@@ -11,4 +11,7 @@ import kotlinx.coroutines.flow.Flow
 interface IWeatherRepository {
     fun findCity(city: String) : Flow<Resource<List<CityEntity>>>
     fun detailCity(cityId: String) : Flow<Resource<DetailCity>>
+    fun getIsFavorite(cityId: Int)
+    fun setOrRemoveFromMovieFavourite(cityEntity: CityEntity)
+    fun getFlowIsFavourite() : Flow<Boolean>
 }

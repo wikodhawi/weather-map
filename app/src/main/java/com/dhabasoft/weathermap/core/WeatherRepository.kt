@@ -44,4 +44,16 @@ class WeatherRepository @Inject constructor(
             }
         }
     }
+
+    override fun getIsFavorite(cityId: Int) {
+        cityLocalDataSource.getIsFavouriteCity(cityId)
+    }
+
+    override fun setOrRemoveFromMovieFavourite(cityEntity: CityEntity) {
+        cityLocalDataSource.setOrRemoveCityFavorite(cityEntity)
+    }
+
+    override fun getFlowIsFavourite(): Flow<Boolean> {
+        return cityLocalDataSource.flowIsFavourite
+    }
 }

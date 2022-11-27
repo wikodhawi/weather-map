@@ -16,4 +16,7 @@ interface CityFavouriteDao {
 
     @Query("SELECT * FROM CityEntity WHERE id=:id")
     fun getById(id: Int): CityEntity?
+
+    @Query("DELETE FROM CityEntity WHERE id=:id")
+    fun delete(id: Int)
 }

@@ -16,4 +16,8 @@ interface WeatherUseCase {
     fun detailCity(
         cityId: String
     ): Flow<Resource<DetailCity>>
+
+    fun setOrRemoveFromCityFavorite(cityEntity: CityEntity)
+    fun getIsFavoriteCity(cityId: Int)
+    fun getFlowIsFavourite() : Flow<Boolean>
 }

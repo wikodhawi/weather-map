@@ -10,7 +10,7 @@ import java.util.*
 @Entity
 class CityEntity(
     @PrimaryKey
-    val id: String,
+    val id: Int = 0,
     val cityName: String,
     val countryCode: String,
     val weatherIcon: String,
