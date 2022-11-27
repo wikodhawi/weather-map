@@ -1,8 +1,11 @@
 package com.dhabasoft.weathermap.view.detailcity
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
+import com.dhabasoft.weathermap.core.data.Resource
 import com.dhabasoft.weathermap.core.data.local.CityEntity
+import com.dhabasoft.weathermap.core.data.source.response.detailcity.DetailCity
 import com.dhabasoft.weathermap.view.weather.WeatherUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -19,4 +22,7 @@ class DetailCityViewModel @Inject constructor(private val weatherUseCase: Weathe
 
     fun setOrRemoveFromCityFavourite(cityEntity: CityEntity) =
         weatherUseCase.setOrRemoveFromCityFavorite(cityEntity)
+
+    fun getDetailCity(cityId: String): LiveData<Resource<DetailCity>> =
+        weatherUseCase.detailCity(cityId).asLiveData()
 }
